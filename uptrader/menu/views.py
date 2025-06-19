@@ -6,6 +6,6 @@ def home(request):
     return render(request, 'base.html')
 
 def dynamic_page(request, slug):
-    slug = '/' + slug.strip('/') + '/'
-    menu_item = get_object_or_404(MenuItem, url=slug)
+    path = '/' + slug.strip('/') + '/'
+    menu_item = get_object_or_404(MenuItem, url=path)
     return render(request, 'dynamic_page.html', {'menu_item': menu_item})
