@@ -1,0 +1,5 @@
+<ul>
+    {% for node in menu_tree %}
+        {% include "menu/menu_item.html" with node=node %}
+    {% endfor %}
+</ul>
