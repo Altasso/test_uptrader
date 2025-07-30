@@ -60,31 +60,32 @@ python manage.py runserver
 ```django
 {% load menu_tags %}
 {% draw_menu 'main_menu' %}
-Структура проекта
-menu/models.py — модель MenuItem для пунктов меню
+```
+## Структура проекта
+- menu/models.py — модель MenuItem для пунктов меню
 
-menu/templatetags/menu_tags.py — templatetag для рендеринга меню
+- menu/templatetags/menu_tags.py — templatetag для рендеринга меню
 
-menu/templates/menu/ — шаблоны меню и пунктов меню
+- menu/templates/menu/ — шаблоны меню и пунктов меню
 
-menu/views.py — представление для динамической страницы по slug
+- menu/views.py — представление для динамической страницы по slug
 
-uptrader/urls.py — маршруты проекта, включая dynamic_page
+- uptrader/urls.py — маршруты проекта, включая dynamic_page
 
-Особенности
-Одно SQL-запрос для загрузки всего меню
+## Особенности
+- Одно SQL-запрос для загрузки всего меню
 
-Автоматическое раскрытие активных веток меню
+- Автоматическое раскрытие активных веток меню
 
-Поддержка нескольких меню на одной странице
+- Поддержка нескольких меню на одной странице
 
-Переходы по явным URL или по именованным маршрутам с передачей slug
+- Переходы по явным URL или по именованным маршрутам с передачей slug
 
-Активный пункт меню определяется по текущему URL
+- Активный пункт меню определяется по текущему URL
 
-Важные моменты
-Для пунктов с named_url='dynamic_page' обязательно указывать поле slug
+## Важные моменты
+- Для пунктов с named_url='dynamic_page' обязательно указывать поле slug
 
-Метод get_absolute_url строит URL либо через reverse с именем маршрута и slug, либо через явный url
+- Метод get_absolute_url строит URL либо через reverse с именем маршрута и slug, либо через явный url
 
-В URLconf задан маршрут с regex, ловящий все запросы re_path(r'^(?P<slug>.+)/$', views.dynamic_page, name='dynamic_page')
+- В URLconf задан маршрут с regex, ловящий все запросы re_path(r'^(?P<slug>.+)/$', views.dynamic_page, name='dynamic_page')
